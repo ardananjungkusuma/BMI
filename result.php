@@ -46,7 +46,19 @@
             }
             $caloriesNeed = 15.3 * $weight + 679;
         }else if($gender == "women"){
-
+			$convertM2 = $height / 100;
+            $pangkat2 = $convertM2 * $convertM2;
+            $resultCategory = $weight / $pangkat2;
+            if($resultCategory < 18.5){
+                $category = "Underweight";
+            }else if($resultCategory >= 18.5 && $resultCategory <= 22.9){
+                $category = "Normal Weight";
+            }else if($resultCategory >= 23 && $resultCategory <=29.9){
+                $category = "Overweight";
+            }else if($resultCategory >= 30){
+                $category = "Obesity";
+			}
+			$caloriesNeed = 14.7 * $weight + 496;
         }
     ?>
 	<div class="bg-contact100" style="background-image: url('images/bg-01.jpg');">
@@ -71,10 +83,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
